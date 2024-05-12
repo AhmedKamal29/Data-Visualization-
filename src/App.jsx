@@ -46,11 +46,11 @@ function App() {
   if (loading) return <div>Loading...</div>;
   return (
     <>
-      <Typography variant="h2" className="text-white text-center ">
+      <Typography variant="h2" className="text-white text-center">
         {' '}
         Data Visualization Showcase
       </Typography>
-      <div className="flex flex-col justify-evenly">
+      <div className="flex flex-col justify-evenly mt-3">
         <div className="flex flex-row justify-evenly">
           <CustomeScatter />
           <CustomBarChart />
