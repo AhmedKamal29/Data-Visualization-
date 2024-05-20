@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import programer from '../../assets/illustrations/Programming.gif';
 import { Button, IconButton, Typography } from '@mui/material';
 import AK from '../../assets/Logos/AK.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import Slide from '@mui/material/Slide';
 
 const Landing = () => {
   const navigate = useNavigate();
+  const [showAbout, setShowAbout] = useState(false);
 
   const handleDownloadPdf = () => {
     const link = document.createElement('a');
@@ -17,6 +19,9 @@ const Landing = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+  const handleArrowClick = () => {
+    setShowAbout(!showAbout);
   };
 
   return (
@@ -113,15 +118,61 @@ const Landing = () => {
             height={600}
             className="mt-9"
           />
-          <div className="flex flex-col justify-around items-center">
-            <Typography variant="h2" className="text-white">
-              {' '}
-              Ahmed Mohamed Kamal
-            </Typography>
-            <Typography variant="p" className="text-gray-500 font-bold">
-              {' '}
-              Software Engineer
-            </Typography>
+          <div className="flex flex-col justify-center">
+            {showAbout ? (
+              <div className="flex flex-col justify-around items-center">
+                <Typography variant="h2" className="text-white">
+                  {' '}
+                  Ahmed Mohamed Kamal
+                </Typography>
+                <Typography variant="p" className="text-gray-500 font-bold">
+                  {' '}
+                  Software Engineer
+                </Typography>
+                <FontAwesomeIcon
+                  icon={faAngleDown}
+                  style={{
+                    color: 'white',
+                    marginRight: 15,
+                    width: 30,
+                    height: 30,
+                    marginTop: 20,
+                    cursor: 'pointer',
+                  }}
+                  className="animate-bounce infinite"
+                  onClick={handleArrowClick}
+                />
+              </div>
+            ) : (
+              <div className="flex flex-col justify-center mt-5 align-middle items-center">
+                <Typography variant="h2" className="text-white">
+                  About Me
+                </Typography>
+                <Typography variant="p" className="text-white w-[651px] h-[72]">
+                  I am a skilled frontend developer with a passion for crafting
+                  intuitive and visually appealing web applications. I bring
+                  designs to life with clean, efficient code using my expertise
+                  in modern frameworks like React and strong foundation in HTML,
+                  CSS, and JavaScript. My attention to detail and commitment to
+                  user experience drive me to constantly learn and implement the
+                  latest industry trends and technologies, ensuring that every
+                  project exceeds the client's expectations.
+                </Typography>
+                <FontAwesomeIcon
+                  icon={faAngleDown}
+                  style={{
+                    color: 'white',
+                    marginRight: 15,
+                    width: 30,
+                    height: 30,
+                    marginTop: 20,
+                    cursor: 'pointer',
+                  }}
+                  className="animate-bounce infinite"
+                  onClick={handleArrowClick}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
