@@ -71,7 +71,7 @@ const Legend = ({
         ))}
       </g>
       <g
-        className="ticks"
+        className="ticks text-white  "
         transform={`translate(0, ${height - marginBottom})`}
       ></g>
     </svg>

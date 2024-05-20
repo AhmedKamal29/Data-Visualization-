@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import * as d3 from 'd3';
 import Legend from './Legend';
 import { Card, CardContent, Typography } from '@mui/material';
+import { LineChart } from '@mui/x-charts/LineChart';
 
 const Map = ({ width, height, data }) => {
   const worldPopulation = data.worldPopulation;
@@ -91,8 +92,8 @@ const Map = ({ width, height, data }) => {
                       setTooltipData({
                         name: d.properties.name,
                         population,
-                        left: x - 30,
-                        top: y - 80,
+                        left: x + 20,
+                        top: y - 90,
                       });
                     }}
                   />
@@ -111,11 +112,37 @@ const Map = ({ width, height, data }) => {
                 style={{
                   left: tooltipData.left,
                   top: tooltipData.top,
+                  zIndex: 9999,
                 }}
               >
                 {tooltipData.name}
                 <br />
                 {tooltipData.population}
+                <br />
+                <div>
+                  <Card
+                    sx={{
+                      height: 150,
+                      minWidth: 150,
+                      maxWidth: 150,
+                      borderRadius: 3,
+                    }}
+                  >
+                    <CardContent>
+                      <LineChart
+                        xAxis={[{ data: [1, 2, 30] }]}
+                        series={[
+                          {
+                            data: [2, 5.5, 2],
+                          },
+                        ]}
+                        height={100}
+                        margin={{ left: 20, right: 0, top: 30, bottom: 30 }}
+                        grid={{ vertical: true, horizontal: true }}
+                      />
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
             )}
           </div>
