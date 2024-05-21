@@ -6,7 +6,6 @@ import AK from '../../assets/Logos/AK.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import Slide from '@mui/material/Slide';
 
 const Landing = () => {
   const navigate = useNavigate();
