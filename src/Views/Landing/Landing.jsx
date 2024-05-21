@@ -10,7 +10,7 @@ import Slide from '@mui/material/Slide';
 
 const Landing = () => {
   const navigate = useNavigate();
-  const [showAbout, setShowAbout] = useState(false);
+  const [showAbout, setShowAbout] = useState(true);
 
   const handleDownloadPdf = () => {
     const link = document.createElement('a');
